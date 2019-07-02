@@ -22,7 +22,7 @@ import java.util.Map;
 public class appletQRCode {
 
     /**
-     * 获取小程序码--小程序二维码
+     * 获取小程序码--小程序二维码aaa
      *
      * @param path 保存二维码路径
      * @param sceneStr 自定义内容

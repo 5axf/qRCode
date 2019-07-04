@@ -1,0 +1,37 @@
+# Tomcat
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+
+# mysql
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://47.96.135.247:3306/agriculture_shop?useUnicode=true&characterEncoding=UTF-8
+    #username: root
+    #password: root
+    url: jdbc:mysql://211.149.155.99:3306/agriculture_shop??useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: e8HrzJz0
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    filters:  stat,wall,log4j
+    logSlowSql: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  #控制台日志输出加上颜色
+  output:
+    ansi:
+      enabled: ALWAYS
+
+# Mybatis配置
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+

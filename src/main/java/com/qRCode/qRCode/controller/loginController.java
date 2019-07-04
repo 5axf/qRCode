@@ -1,12 +1,14 @@
 package com.qRCode.qRCode.controller;
 
-import cn.hutool.Hutool;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -17,6 +19,8 @@ import org.springframework.web.client.RestTemplate;
  * @version 1.0
  * @date 2019/7/4 9:47
  */
+@Controller
+@RequestMapping("/login")
 public class loginController {
 
     @Value("appid")
@@ -30,6 +34,8 @@ public class loginController {
      * @param code 登录时通过js获取的 code
      * @return
      */
+    @RequestMapping("/wechatLogin")
+    @ResponseBody
     public String login(String code)
     {
         //微信的接口

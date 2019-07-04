@@ -1,11 +1,14 @@
 package com.qRCode.qRCode.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
@@ -19,23 +22,30 @@ import java.util.Map;
  * @version 1.0
  * @date 2019/7/2 15:03
  */
+@RestController
+@RequestMapping("/qrcode")
 public class appletQRCode {
+
+    @Value("appid")
+    private String APPID;
+
+    @Value("secret")
+    private String SECRET;
 
     /**
      * 获取小程序码--小程序二维码
      *
      * @param path 保存二维码路径
      * @param sceneStr 自定义内容
-     * @param AppId 小程序appid
-     * @param secret 小程序secret
      */
-    public void getUnlimited(String path,String sceneStr,String AppId,String secret){
+    @RequestMapping("/creatQRCode")
+    public void getUnlimited(String path,String sceneStr){
         RestTemplate rest = new RestTemplate();
         InputStream inputStream = null;
         OutputStream outputStream = null;
         try {
             //post请求
-            String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+getAccessToken(AppId,secret);
+            String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+getAccessToken(APPID,SECRET);
             Map<String,Object> param = new HashMap<>();
             param.put("scene", sceneStr);
 //            param.put("page", "pages/index/index");

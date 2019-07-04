@@ -1,4 +1,4 @@
-package com.qRCode.qRCode;
+package com.qRCode.qRCode.util;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;

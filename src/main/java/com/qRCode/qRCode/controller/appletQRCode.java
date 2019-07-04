@@ -1,4 +1,4 @@
-package com.qRCode.qRCode;
+package com.qRCode.qRCode.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.HttpEntity;
